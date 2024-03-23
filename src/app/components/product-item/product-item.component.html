@@ -92,7 +92,8 @@
           (click)="redirectToDetails(productItem.id)"
         >
           Details</button
-        ><button class="btn btn-success btn-sm mt-2 w-100" type="button" (click)="addToCart(productItem.id)">
+        ><button class="btn btn-success btn-sm mt-2 w-100" type="button"
+        [disabled]="productItem.stock == 0" (click)="addToCart(productItem.id)">
           Add to Cart
         </button>
       </div>
