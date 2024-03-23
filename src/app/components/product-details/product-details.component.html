@@ -1,0 +1,125 @@
+<section class="py-2">
+  <div class="container py-5">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          <a class="rounded-4">
+            <img
+              class="rounded-4 fit w-100 h-100 m-auto"
+              [src]="(productDetails?.images)![0]"
+            />
+          </a>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+          <a class="border mx-1 rounded-2 item-thumb">
+            <img
+              width="60"
+              height="60"
+              class="rounded-2"
+              [src]="(productDetails?.images)![1]"
+            />
+          </a>
+          <a class="border mx-1 rounded-2 item-thumb">
+            <img
+              width="60"
+              height="60"
+              class="rounded-2"
+              [src]="(productDetails?.images)![2]"
+            />
+          </a>
+          <a class="border mx-1 rounded-2 item-thumb">
+            <img
+              width="60"
+              height="60"
+              class="rounded-2"
+              [src]="(productDetails?.images)![3]"
+            />
+          </a>
+        </div>
+      </aside>
+      <main class="col-lg-6 my-2">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">
+            {{ productDetails?.title }}
+          </h4>
+          <span>{{ productDetails?.category }}</span>
+          <div class="d-flex flex-row mt-3">
+            <div class="text-warning mb-1 me-2">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ms-1"> 4.5 </span>
+            </div>
+          </div>
+          <div class="my-3">
+            <span class="text-muted"
+              ><i class="fas fa-shopping-basket fa-sm mx-1"></i>
+              @if(productDetails?.stock!==0){ {{ productDetails?.stock }} }
+              @else{ }</span
+            >
+            <span
+              class="ms-2"
+              [ngStyle]="{
+                color: productDetails?.stock !== 0 ? 'green' : 'red'
+              }"
+            >
+              @if(productDetails?.stock!==0){ In Stock } @else{ Out of Stock
+              }</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center mb-3">
+            <h5 class="mr-1 fw-bold">{{ priceAfterSale }}$</h5>
+            <h6 class="strike-text mx-2 text-decoration-line-through">
+              {{ productDetails?.price }}$
+            </h6>
+          </div>
+          <p>
+            {{ productDetails?.description }}
+          </p>
+          <hr />
+          <div class="row mb-2">
+            <div class="col-md-4 col-6">
+              <label class="mb-2 d-block">Quantity</label>
+              <div class="input-group mb-3" style="width: 170px">
+                <button
+                  class="btn btn-white border border-secondary px-3"
+                  type="button"
+                  id="button-addon1"
+                  data-mdb-ripple-color="dark"
+                  
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input
+                  type="number"
+                  class="form-control text-center border border-secondary"
+                  placeholder="14"
+                  aria-label="Example text with button addon"
+                  aria-describedby="button-addon1"
+                />
+                <button
+                  class="btn btn-white border border-secondary px-3"
+                  type="button"
+                  id="button-addon2"
+                  data-mdb-ripple-color="dark"
+                 
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-success shadow-0"
+            [disabled]="productDetails?.stock == 0"
+          >
+            <i class="me-1 fa fa-shopping-basket" (click)="addToCart(productDetails?.id)"></i> Add to cart
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>

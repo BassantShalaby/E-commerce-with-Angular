@@ -1,0 +1,102 @@
+<div class="card h-100">
+  <div class="card-img-top">
+    <img class="product-image" [src]="productItem.images![0]" />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title fw-bold">{{ productItem.title }}</h5>
+    <div class="d-flex flex-row justify-content-between">
+      <div class="ratings mr-2">
+        <!-- 1 star  -->
+        <i
+          [class]="
+            productItem.rating == 0
+              ? 'far fa-star star'
+              : productItem.rating! > 0 && productItem.rating! < 1
+              ? 'fas fa-star-half-alt star'
+              : 'fas fa-star star'
+          "
+        ></i>
+
+        <!-- 2 star  -->
+        <i
+          [class]="
+            productItem.rating! > 1 && productItem.rating! < 2
+              ? 'fas fa-star-half-alt star'
+              : productItem.rating! >= 2
+              ? 'fas fa-star star'
+              : 'far fa-star star'
+          "
+        ></i>
+
+        <!-- 3 star  -->
+        <i
+          [class]="
+            productItem.rating! > 2 && productItem.rating! < 3
+              ? 'fas fa-star-half-alt star'
+              : productItem.rating! >= 3
+              ? 'fas fa-star star'
+              : 'far fa-star star'
+          "
+        ></i>
+
+        <!-- 4 star  -->
+        <i
+          [class]="
+            productItem.rating! > 3 && productItem.rating! < 4
+              ? 'fas fa-star-half-alt star'
+              : productItem.rating! >= 4
+              ? 'fas fa-star star'
+              : 'far fa-star star'
+          "
+        ></i>
+
+        <!-- 5 star  -->
+        <i
+          [class]="
+            productItem.rating! > 4 && productItem.rating! < 5
+              ? 'fas fa-star-half-alt star'
+              : productItem.rating! >= 5
+              ? 'fas fa-star star'
+              : 'far fa-star star'
+          "
+        ></i>
+
+        <span class="mx-2">{{ productItem.rating }}</span>
+      </div>
+      <p
+        class="stock rounded py-1 px-3"
+        [ngStyle]="{
+          'background-color': productItem.stock !== 0 ? 'green' : 'red'
+        }"
+      >
+        @if(productItem.stock!==0){ In Stock } @else{ Out of Stock }
+      </p>
+    </div>
+    <div>
+      <p class="card-text text-justify text-truncate para mb-0">
+        {{ productItem.description }}<br /><br />
+      </p>
+    </div>
+    <div class="align-items-center align-content-center border-left">
+      <div class="d-flex align-items-center">
+        <h5 class="mr-1 fw-bold">{{ priceAfterSale }}$</h5>
+        <span class="strike-text mx-2 text-decoration-line-through color"
+          >{{ productItem.price }}$</span
+        >
+      </div>
+
+      <div class="d-flex flex-column mt-2">
+        <button
+          class="btn btn-primary btn-sm w-100"
+          type="button"
+          (click)="redirectToDetails(productItem.id)"
+        >
+          Details</button
+        ><button class="btn btn-success btn-sm mt-2 w-100" type="button" (click)="addToCart(productItem.id)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

@@ -1,0 +1,73 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 py-5 d-flex justify-content-center">
+      <div class="form-container w-75 bg-light border p-lg-5">
+        <h3
+          id="scrollspyHeading4"
+          class="fs-2 fw-bold text-uppercase pb-3 p-x5 text-center"
+        >
+          Login
+        </h3>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+          <div class="row mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              required
+              pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+              class="form-control"
+              id="email"
+              placeholder="Enter Your Email"
+              name="userEmail"
+              ngModel
+              #userEmail="ngModel"
+            />
+            @if(userEmail.touched && userEmail.invalid){
+            <div class="form-text text-danger">
+              @if(userEmail.errors?.['required']){
+              <small>This field is required.</small>
+              } @if(userEmail.errors?.['pattern']){
+              <small>Please enter a valid email address.</small>
+              }
+            </div>
+            }
+          </div>
+          <div class="row mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              required
+              id="password"
+              class="form-control"
+              placeholder="Enter Your Password"
+              name="userPassword"
+              ngModel
+              #userPassword="ngModel"
+            />
+            @if(userPassword.touched && userPassword.invalid){
+            <div class="form-text text-danger">
+              @if(userPassword.errors?.['required']){
+              <small>This field is required.</small>
+              }
+            </div>
+            }
+          </div>
+          <div class="row mb-3">
+            <button type="submit" class="mx-auto btn btn-dark px-5 fs-5">
+              Login
+            </button>
+          </div>
+          <div class="row mt-5">
+            <span
+              ><a
+                routerLink="/register"
+                class="text-decoration-none d-flex justify-content-center"
+                >Don't have an account? Register</a
+              ></span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

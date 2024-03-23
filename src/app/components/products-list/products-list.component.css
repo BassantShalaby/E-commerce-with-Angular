@@ -1,0 +1,27 @@
+
+/* .ratings i {
+  font-size: 16px;
+  color: red;
+} */
+.color {
+  color: red;
+}
+.product-image {
+  width: 100%;
+}
+
+.para {
+  font-size: 13px;
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+}
+
+.stock{
+  /* display: flex; */
+  justify-self: flex-end;
+  color: green;
+  width: max-content;
+  height: max-content;
+  border: 1px solid;
+}

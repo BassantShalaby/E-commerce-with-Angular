@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg py-1 border-bottom bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand fs-3" routerLink="/" routerLinkActive="active_link"
+    [routerLinkActiveOptions]="{exact:true}">E-commerce</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-uppercase" routerLink="/" routerLinkActive="active_link"
+          [routerLinkActiveOptions]="{exact:true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-uppercase" routerLink="all-products" routerLinkActive="active_link">Products</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link text-uppercase" routerLink="product-details" routerLinkActive="active_link">About Us</a>
+        </li> -->
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login" routerLinkActive="active_link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="register" routerLinkActive="active_link">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cart" routerLinkActive="active_link" >
+            <i class="bi bi-cart-fill"></i>{{counter}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
